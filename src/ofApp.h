@@ -1,6 +1,14 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ofxJSON.h"
+
+struct RepositoryFile {
+	std::string name;
+	std::string path;
+	std::string downloadUrl;
+};
+
 
 class ofApp : public ofBaseApp{
 	public:
@@ -19,4 +27,8 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
     
         ofShader shader;
+        std::vector<RepositoryFile> shaders;
+
+	private:
+		std::string downloadResource(const std::string& url);
 };
